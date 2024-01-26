@@ -7,6 +7,7 @@
 [node name="Level" type="Node2D"]
 
 [node name="Car" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1282, 814)
 texture = ExtResource("1_urvkl")
 
@@ -14,4 +15,4 @@ texture = ExtResource("1_urvkl")
 position = Vector2(700, 548)
 
 [node name="Player" parent="." instance=ExtResource("2_juuhh")]
-position = Vector2(631, 802)
+position = Vector2(491, 359)
