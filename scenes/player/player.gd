@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var move_speed: int = 500
 var laser_sprite: Sprite2D
@@ -8,10 +8,11 @@ func _ready():
 	laser_sprite = %LaserSprite
 	print_debug(laser_sprite)
 
-func _process(delta):
+func _process(_delta):
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	position += direction * 500 * delta
-	
+	# No need for delta on move and slide
+	velocity = direction * move_speed
+	move_and_slide()
 	# laser shoting input
 	if Input.is_action_pressed("primary_action"):
 		print_debug('Primare shot')
