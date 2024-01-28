@@ -14,7 +14,7 @@ func _process(_delta):
 	velocity = direction * move_speed
 	move_and_slide()
 	# laser shoting input
-	if Input.is_action_pressed("primary_action"):
+	if Input.is_action_just_pressed("primary_action"):
 		print_debug('Primare shot')
 	
 	if Input.is_action_pressed("secondary_action"):
