@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn757gjp775io"]
+[gd_scene load_steps=6 format=3 uid="uid://cn757gjp775io"]
 
 [ext_resource type="Texture2D" uid="uid://d3u5dtowrurts" path="res://graphics/car/main.png" id="1_urvkl"]
+[ext_resource type="PackedScene" uid="uid://c5hsn8lkk8gag" path="res://scenes/enemies/drone.tscn" id="1_wvfro"]
 [ext_resource type="PackedScene" uid="uid://dmwcolghdc00j" path="res://scenes/details/bed.tscn" id="2_4ftxe"]
 [ext_resource type="PackedScene" uid="uid://cirjdp5e53p2u" path="res://scenes/player/player.tscn" id="2_juuhh"]
 [ext_resource type="PackedScene" uid="uid://cftvblvlrh2w2" path="res://scenes/details/billboard.tscn" id="4_6avok"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Drone" parent="." instance=ExtResource("1_wvfro")]
+position = Vector2(-108, 178)
 
 [node name="Car" type="Sprite2D" parent="."]
 visible = false
