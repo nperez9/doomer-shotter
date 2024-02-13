@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4dxjcj5rcxq"]
+
+[ext_resource type="Texture2D" uid="uid://d3u5dtowrurts" path="res://graphics/car/main.png" id="1_ql6gc"]
+
+[node name="Car" type="Sprite2D"]
+visible = false
+position = Vector2(1282, 814)
+texture = ExtResource("1_ql6gc")
