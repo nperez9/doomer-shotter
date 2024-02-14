@@ -26,3 +26,25 @@ limit_smoothed = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-32, 0)
 shape = SubResource("CircleShape2D_m0vt5")
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="GranadeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="FirePoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="FirePoints"]
+position = Vector2(94, 19)
+
+[node name="Marker2D2" type="Marker2D" parent="FirePoints"]
+position = Vector2(93, 12)
+
+[node name="Marker2D3" type="Marker2D" parent="FirePoints"]
+position = Vector2(93, 27)
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="GranadeTimer" to="." method="_on_granade_timer_timeout"]
