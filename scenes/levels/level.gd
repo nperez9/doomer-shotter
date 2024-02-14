@@ -6,9 +6,8 @@ const laser_scene: PackedScene = preload("res://scenes/proyectiles/laser.tscn")
 func _on_gate_player_entered_gate(body):
 	print("passed by a custom signal")
 
-
-func _on_player_laser_fire():
+func _on_player_laser_fire(position):
 	var laser = laser_scene.instantiate()
 	add_child(laser)
-	laser.position = $Player.position
+	laser.position = position
 	print("Player hass been cool uf")

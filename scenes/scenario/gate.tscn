@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/scenario/gate.gd" id="1_fimcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvdi3"]
-size = Vector2(845, 148)
+size = Vector2(795.75, 139)
 
 [node name="Gate" type="StaticBody2D"]
 script = ExtResource("1_fimcs")
@@ -14,12 +14,12 @@ position = Vector2(352, -780)
 texture = ExtResource("1_46ae1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-1085, -1560, -1085, -253, -1068, -166, -1015, -82, -932, -23, -837, -1, -14, -1, -11, -137, 13, -166, 41, -179, 781, -182, 819, -164, 839, -136, 841, -2, 1673, -2, 1786, -36, 1878, -128, 1912, -241, 1911, -1558)
+polygon = PackedVector2Array(-1085, -1560, -1085, -253, -1068, -166, -1053, -133, -1037, -108, -1015, -82, -981, -51, -958, -36, -932, -23, -886, -8, -837, -1, -14, -1, -11, -137, 13, -166, 43, -179, 781, -182, 819, -164, 839, -136, 841, -2, 1673, -2, 1720, -9, 1769, -27, 1822, -62, 1878, -128, 1897, -165, 1912, -241, 1911, -1558)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(414.5, -111)
+position = Vector2(415, -90)
 shape = SubResource("RectangleShape2D_lvdi3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

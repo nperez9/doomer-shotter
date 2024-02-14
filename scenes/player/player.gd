@@ -5,7 +5,7 @@ var laser_sprite: Sprite2D
 var can_shoot = true
 var can_granade = true
 
-signal laser_fire
+signal laser_fire(position)
 
 func _ready():
 	# Access by unique name id
@@ -20,11 +20,11 @@ func _process(_delta):
 
 	# laser shoting input
 	if Input.is_action_just_pressed("primary_action") && can_shoot:
-		## selects a random firepoint
 		can_shoot = false
+		var laser_marker = get_random_firepoint()
 		$LaserTimer.start()
 		print('Primare shot')
-		laser_fire.emit()
+		laser_fire.emit(laser_marker.global_position)
 	
 	if Input.is_action_pressed("secondary_action") && can_granade:
 		$GranadeTimer.start()
@@ -38,6 +38,9 @@ func follow_pointer() -> void:
 	var dir_to_mouse = mouse_pos - position
 	rotation = dir_to_mouse.angle()
 
+func get_random_firepoint() -> Marker2D:
+	var markers = $FirePoints.get_children()
+	return markers[randi() % markers.size()]
 
 func _on_laser_timer_timeout():
 	can_shoot = true
