@@ -5,7 +5,8 @@ var laser_sprite: Sprite2D
 var can_shoot = true
 var can_granade = true
 
-signal laser_fire(position)
+signal laser_fire(position: Vector2, direction: Vector2)
+signal grenade_fire(position: Vector2, direction: Vector2)
 
 func _ready():
 	# Access by unique name id
@@ -24,14 +25,20 @@ func _process(_delta):
 		var laser_marker = get_random_firepoint()
 		$LaserTimer.start()
 		print('Primare shot')
-		laser_fire.emit(laser_marker.global_position)
+		laser_fire.emit(laser_marker.global_position, get_player_look_direction())
 	
 	if Input.is_action_pressed("secondary_action") && can_granade:
 		$GranadeTimer.start()
-		can_granade = false		
+		can_granade = false
+		grenade_fire.emit($GrenadeFirePoint.global_position, get_player_look_direction())
 		print("open fire motherfucker")
 	
-	follow_pointer()
+	look_at(get_global_mouse_position())
+	## follow_pointer()
+
+func get_player_look_direction() -> Vector2:
+	var dir = (get_global_mouse_position() - position).normalized()
+	return dir
 
 func follow_pointer() -> void: 
 	var mouse_pos = get_global_mouse_position()
