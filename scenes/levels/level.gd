@@ -8,12 +8,11 @@ func _on_gate_player_entered_gate(body):
 	print("passed by a custom signal")
 
 func _on_player_laser_fire(position, direction):
-	var laser = laser_scene.instantiate()
+	var laser = laser_scene.instantiate() as Area2D
 	$Projectiles.add_child(laser)
 	laser.position = position
 	laser.direction = direction
-	laser.look_at(direction)
-	print("Player hass been cool uf")
+	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 
 
 func _on_player_grenade_fire(position, direction):

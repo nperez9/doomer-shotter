@@ -8,6 +8,8 @@
 script = ExtResource("1_p8y6q")
 
 [node name="Gate" parent="." instance=ExtResource("2_oyrle")]
+collision_layer = 7
+collision_mask = 7
 
 [node name="Player" parent="." instance=ExtResource("2_juuhh")]
 position = Vector2(332, 259)
