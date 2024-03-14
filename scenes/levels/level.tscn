@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cn757gjp775io"]
+[gd_scene load_steps=16 format=3 uid="uid://cn757gjp775io"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_p8y6q"]
 [ext_resource type="Texture2D" uid="uid://7uowg3f16g1s" path="res://graphics/ground/stones.png" id="2_3xjjj"]
@@ -9,7 +9,43 @@
 [ext_resource type="Texture2D" uid="uid://bsp1soq6ntgdf" path="res://graphics/decals/moss/moss_2.png" id="5_8g1lh"]
 [ext_resource type="Texture2D" uid="uid://cvb6pdds0a3ev" path="res://graphics/decals/moss/moss_3.png" id="6_ks55d"]
 [ext_resource type="Texture2D" uid="uid://bnqua002t4l5h" path="res://graphics/decals/moss/moss_4.png" id="9_bnr3c"]
+[ext_resource type="Texture2D" uid="uid://bqw4oo0dpnh02" path="res://graphics/tilesets/outside_walls.png" id="9_fp3v2"]
 [ext_resource type="Texture2D" uid="uid://dvrvi71onopip" path="res://graphics/decals/moss/moss_5.png" id="10_0wouv"]
+[ext_resource type="Texture2D" uid="uid://h2giivwkkadj" path="res://graphics/tilesets/soil.png" id="10_ituwd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1k8s1"]
+resource_name = "Walls"
+texture = ExtResource("9_fp3v2")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jntgv"]
+resource_name = "Soil"
+texture = ExtResource("10_ituwd")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_06pna"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_1k8s1")
+sources/1 = SubResource("TileSetAtlasSource_jntgv")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_p8y6q")
@@ -22,7 +58,7 @@ texture_repeat = 2
 position = Vector2(222, 1385)
 texture = ExtResource("2_3xjjj")
 region_enabled = true
-region_rect = Rect2(-648.64, -272.995, 6000, 5000)
+region_rect = Rect2(-5000, -272.995, 16000, 8000)
 
 [node name="Dirt" type="Sprite2D" parent="Ground"]
 modulate = Color(0.776471, 0.741176, 0.607843, 1)
@@ -30,7 +66,7 @@ position = Vector2(-607, 1226)
 texture = ExtResource("3_ej5nu")
 
 [node name="Moss1" type="Sprite2D" parent="Ground"]
-position = Vector2(1014, 984)
+position = Vector2(3086, -32)
 texture = ExtResource("4_ohxko")
 
 [node name="Moss2" type="Sprite2D" parent="Ground"]
@@ -49,6 +85,14 @@ texture = ExtResource("9_bnr3c")
 [node name="Moss5" type="Sprite2D" parent="Ground"]
 position = Vector2(-1610, 1623)
 texture = ExtResource("10_0wouv")
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+tile_set = SubResource("TileSet_06pna")
+format = 2
+layer_0/name = "Soil"
+layer_0/tile_data = PackedInt32Array(65532, 65537, 2, 65533, 131073, 2, 65531, 65537, 2, 65530, 1, 2, -6, 1, 1, -65542, 1, 1, -131078, 1, 1, -196614, 1, 1, -262150, 1, 0, -262149, 65537, 0, -262148, 65537, 0, -262147, 65537, 0, -262146, 65537, 0, -262145, 65537, 0, -327680, 65537, 0, -327679, 65537, 0, -327678, 65537, 0, -327677, 65537, 0, -327676, 65537, 0, -327675, 65537, 0, -327674, 65537, 0, -262138, 65537, 1, -262137, 65537, 0, -262136, 65537, 0, -327673, 131073, 0, -196600, 131073, 1, -131064, 131073, 1, -65528, 131073, 1, 8, 131073, 1, 65544, 131073, 2, 65543, 65537, 2, 65542, 65537, 2, 65541, 65537, 2, 65540, 65537, 2, 65539, 65537, 2, 65538, 1, 2, 2, 1, 1, -65534, 65537, 1, -65535, 65537, 1, -65536, 65537, 1, -1, 65537, 1, -2, 65537, 1, -3, 65537, 1, -131077, 65537, 1, -196613, 65537, 1, -196612, 65537, 1, -131076, 65537, 1, -65540, 65537, 1, -65541, 65537, 1, -5, 65537, 1, -4, 65537, 1, -65539, 65537, 1, -131075, 65537, 1, -196611, 65537, 1, -196610, 65537, 1, -131074, 65537, 1, -65538, 65537, 1, -65537, 65537, 1, -131073, 65537, 1, -196609, 65537, 1, -262144, 65537, 1, -196608, 65537, 1, -131072, 65537, 1, -131071, 65537, 1, -196607, 65537, 1, -262143, 65537, 1, -262142, 65537, 1, -196606, 65537, 1, -131070, 65537, 1, -131069, 65537, 1, -196605, 65537, 1, -262141, 65537, 1, -262140, 65537, 1, -196604, 65537, 1, -131068, 65537, 1, -65532, 65537, 1, -65533, 65537, 1, 3, 65537, 1, 4, 65537, 1, 5, 65537, 1, -65531, 65537, 1, -131067, 65537, 1, -196603, 65537, 1, -262139, 65537, 1, -196602, 65537, 1, -131066, 65537, 1, -65530, 65537, 1, 6, 65537, 1, 7, 65537, 1, -65529, 65537, 1, -131065, 65537, 1, -196601, 65537, 1)
+layer_1/name = "Wall"
+layer_1/tile_data = PackedInt32Array(131071, 0, 3, 2, 0, 1, 65538, 0, 2, 131074, 0, 3, 65535, 131072, 1, 65534, 65536, 0, 65533, 65536, 0, 65532, 65536, 0, 65531, 65536, 0, 65530, 65536, 2, -6, 0, 2, -65542, 0, 2, -131078, 0, 2, -196614, 0, 1)
 
 [node name="Gate" parent="." instance=ExtResource("2_oyrle")]
 collision_layer = 7
