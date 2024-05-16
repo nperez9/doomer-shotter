@@ -11,7 +11,6 @@ signal grenade_fire(position: Vector2, direction: Vector2)
 func _ready():
 	# Access by unique name id
 	laser_sprite = %LaserSprite
-	print_debug(laser_sprite)
 
 func _process(_delta):
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
